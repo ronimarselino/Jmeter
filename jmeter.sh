@@ -5,8 +5,8 @@ curl -O https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.2.1.tgz
 tar -zxvf apache-jmeter-5.2.1.tgz
 sudo chmod 777 /etc/security/limits.conf
 sudo chmod 777 /etc/pam.d/sshd
-sudo tee /etc/profile.d/j_ops.sh <<EOF
 sed -i 's/set HEAP=-Xms1g -Xmx1g -XX:MaxMetaspaceSize=256m/set HEAP=-Xms2g -Xmx16g -XX:MaxMetaspaceSize=256m"/g'  /home/ec2-user/apache-jmeter-5.2.1/bin/jmeter.bat
+sudo tee /etc/profile.d/j_ops.sh <<EOF
 export _JAVA_OPTIONS=-Xms1g -Xmx64g
 EOF
 sudo tee /etc/profile.d/jdk14.sh <<EOF
@@ -22,3 +22,4 @@ echo "root             soft     nofile          65535" >>  /etc/security/limits.
 echo "root             hard     nofile          65535" >>  /etc/security/limits.conf
 echo 65534 > /proc/sys/fs/file-max
 echo "session    required     pam_limits.so" >> /etc/pam.d/sshd
+sh /home/ssm-user/apache-jmeter-5.2.1/bin/jmeter-server
