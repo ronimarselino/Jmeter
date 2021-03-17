@@ -23,3 +23,4 @@ echo "root             hard     nofile          65535" >>  /etc/security/limits.
 echo 65534 > /proc/sys/fs/file-max
 echo "session    required     pam_limits.so" >> /etc/pam.d/sshd
 sh /home/ssm-user/apache-jmeter-5.2.1/bin/jmeter-server
+
