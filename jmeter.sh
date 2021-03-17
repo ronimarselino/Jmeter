@@ -7,7 +7,7 @@ sudo chmod 777 /etc/security/limits.conf
 sudo chmod 777 /etc/pam.d/sshd
 sed -i 's/set HEAP=-Xms1g -Xmx1g -XX:MaxMetaspaceSize=256m/set HEAP=-Xms2g -Xmx16g -XX:MaxMetaspaceSize=256m"/g'  /home/ec2-user/apache-jmeter-5.2.1/bin/jmeter.bat
 sudo tee /etc/profile.d/j_ops.sh <<EOF
-export _JAVA_OPTIONS=-Xms1g -Xmx64g
+export _JAVA_OPTIONS="-Xms1g -Xmx64g"
 EOF
 sudo tee /etc/profile.d/jdk14.sh <<EOF
 export JAVA_HOME=/opt/jdk-14
